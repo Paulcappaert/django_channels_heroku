@@ -13,6 +13,10 @@
 <script>
     var roomName = {{ room_name_json }};
 
+    {% for message in messages %}
+    document.querySelector('#chat-log').value += ({{ message }} + "\n");
+    {% endfor %}
+
     var protocol = '';
     if (window.location.protocol === 'https:') {
         protocol = 'wss:';
